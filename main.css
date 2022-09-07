@@ -23,7 +23,7 @@ li {
 }
 
 .light-theme {
-    --bg: var(--white);
+  --bg: var(--white);
   --fontColor: var(--black);
   --btnBg: var(--black);
   --btnFontColor: var(--white);
@@ -36,10 +36,10 @@ li {
   --btnFontColor: var(--black); 
 }
 
-.btn {
+.light-switch {
   position: absolute;
   top: 20px;
-  left: 250px;
+  left: 1350px;
   height: 50px;
   width: 50px;
   border-radius: 12px;
@@ -48,4 +48,26 @@ li {
   background-color: var(--btnBg);
 }
 
+.incrementBtn {
+  position: absolute;
+  top: 120px;
+  left: 250px;
+  height: 25px;
+  width: 80px;
+  border-radius: 12px;
+  border: none;
+  color: var(--btnFontColor);
+  background-color: var(--btnBg);
+}
 
+.decrementBtn {
+  position: absolute;
+  top: 150px;
+  left: 250px;
+  height: 25px;
+  width: 80px;
+  border-radius: 12px;
+  border: none;
+  color: var(--btnFontColor);
+  background-color: var(--btnBg);
+}
