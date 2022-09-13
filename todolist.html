@@ -3,31 +3,25 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Incrementer</title>
+	<title id="todolist">To Do List</title>
 	<link rel="stylesheet" type="text/css" href="main.css">
 </head>
 <body class = "dark-theme">
     <a href="/Users/MiriamKim/Desktop/Website/index.html">Home</a>
     <a href="file:///Users/MiriamKim/Desktop/Website/apps.html">Apps Page</a><br>
-	<h1>Incrementer</h1>
-    <h1>Count: </h1>
-    <h1 id="count">0</h1>
+    <h1>To Do List</h1>
 
-  <div>
-    <button class="light-switch">Light</button>
-	</div>
+    <input class="textarea" type="input" id="inputText" maxlength="50" name ="todoinput">
+    <input class="submitBtn" type="button" id="sendText" name="saveinput" value="Submit"/>
 
-  <div>
-    <button class="incrementBtn">Increase</button>
-  </div>
+    <ul id="ul" class="todolistText">
 
-  <div>
-    <button class="decrementBtn">Decrease</button>
-  </div>
+    </ul>
 
-  <div>
-    <button class="resetBtn">Reset</button>
-  </div>
+    <div>
+        <button class="light-switch">Light</button>
+    </div>
+
     <script src="app.js"></script>
     <noscript>You need to enable JavaScript to view the full site.</noscript>
 </body>
