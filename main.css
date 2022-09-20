@@ -2,6 +2,8 @@
   --green: #00FF00;
   --white: #FFFFFF;
   --black: #000000;
+  --grey: #808080;
+  --red: #ff4122;
 }
 
 body {
@@ -98,7 +100,7 @@ li {
 
 .submitBtn {
   position: absolute;
-  left: 775px;
+  right: 30px;
   height: 30px;
   width: 80px;
   border-radius: 12px;
@@ -107,10 +109,47 @@ li {
   background-color: var(--btnBg);
 }
 
+#todoListInputBoxContainer {
+  position: absolute;
+  left: 30px;
+  height: 30px;
+  width: 800px;
+}
+
+#liContainer {
+  width: 675px;
+  background-color: var(--grey);
+  border-radius: 6px;
+  display: inline-block;
+}
+
+#xbutton {
+  position: absolute;
+  right: 2px;
+  height: 25px;
+  width: 25px;
+  border-radius: 8px;
+  border: none;
+  background-color: var(--red);
+}
+
 .todolistText {
   position: absolute;
+  font-size: 25px;
   top: 150px;
   left: 0px;
+}
+
+#ul div {
+  text-decoration: none;
+  display: block;
+  color: inherit;
+  float: left;
+}
+
+#ul div:hover {
+  text-decoration: none;
+  background-color: #658354;
 }
 
 .todolistRemoveBtn {
@@ -122,25 +161,4 @@ li {
   border: none;
   color: var(--btnFontColor);
   background-color: var(--btnBg);
-}
-
-.todolistCheckBtn {
-  position: absolute;
-  visibility: visible;
-  left: 40px;
-  height: 25px;
-  width: 25px;
-  border-radius: 4px;
-  border: none;
-  color: var(--btnFontColor);
-  background-color: var(--btnBg);
-}
-
-.listblock ul li a {
-    padding: 5px 30px 5px 10px;
-    display: block;
-}
-
-.listblock ul li a:hover {
-    background: transparent url('../img/basket.png') no-repeat 3px 170px;
 }

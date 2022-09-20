@@ -15,7 +15,6 @@ lightSwitch.addEventListener('click', function() {
 	const className = document.body.className;
 	if (className == "light-theme"){
 		this.textContent = "Dark";
-		console.log(this);
 	} else {
 		this.textContent = "Light";	
 	}
@@ -72,28 +71,48 @@ if (document.getElementById("todolist")) {
 
 
 	submitBtn.addEventListener('click', function() {
+		const container = document.createElement("div");
 		const li = document.createElement("li");
+		const a = document.createElement("a");
+		const xButton = document.createElement("button");
+		const br = document.createElement("br");
+
 		let inputText = document.getElementById('inputText').value;
+		xButton.id = "xbutton";
+		container.id = "liContainer";
+		container.href = "#";
+
+		xButton.addEventListener('click', function() {
+			container.remove();
+			br.remove();
+		});
+
+		container.onclick = function() {
+			if (a.style.textDecoration == "line-through") {
+				a.style.textDecoration = "none";
+			} else {
+				a.style.textDecoration = "line-through";
+			}
+		};
+
 		if (inputText.replace(/\s/g, '')) {
-			let t = document.createTextNode('<a href="#">' + inputText + '</a>');
-			li.appendChild(t);
-			ul.appendChild(li);
+			let t = document.createTextNode(inputText);
+			container.appendChild(xButton);
+			ul.appendChild(container);
+			ul.appendChild(br);
+			container.appendChild(li);
+			li.appendChild(a);
+			a.appendChild(t);
+
 			document.getElementById('inputText').value = '';
 		}
 	});
 }
+
+
+
+
 	
-
-
-
-	
-
-
-
-
-
-
-
 
 
 
