@@ -78,8 +78,8 @@ if (document.getElementById("todolist")) {
 		const br = document.createElement("br");
 
 		let inputText = document.getElementById('inputText').value;
-		xButton.id = "xbutton";
-		container.id = "liContainer";
+		xButton.classList.add("xbutton");
+		container.classList.add("liContainer");
 		container.href = "#";
 
 		xButton.addEventListener('click', function() {

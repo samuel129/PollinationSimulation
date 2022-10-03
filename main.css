@@ -4,6 +4,8 @@
   --black: #000000;
   --grey: #808080;
   --red: #ff4122;
+  --greybg: #949494;
+  --lightblack: #212121;
 }
 
 body {
@@ -32,7 +34,7 @@ li {
 }
 
 .dark-theme {   
-  --bg: var(--black);
+  --bg: var(--lightblack);
   --fontColor: var(--white);
   --btnBg: var(--white);
   --btnFontColor: var(--black); 
@@ -116,17 +118,27 @@ li {
   width: 800px;
 }
 
-#liContainer {
+.liContainer {
+  position: relative;
+  width: 675px;
+  height: 31px;
+  background-color: var(--grey);
+  border-radius: 6px;
+  display: inline-block;
+}
+
+#flowerContainer {
   width: 675px;
   background-color: var(--grey);
   border-radius: 6px;
   display: inline-block;
 }
 
-#xbutton {
+.xbutton {
   position: absolute;
+  top: 2px;
   right: 2px;
-  height: 25px;
+  height: 26px;
   width: 25px;
   border-radius: 8px;
   border: none;
