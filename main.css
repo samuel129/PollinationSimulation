@@ -4,8 +4,9 @@
   --black: #000000;
   --grey: #808080;
   --red: #ff4122;
-  --greybg: #949494;
+  --darkgrey: #949494;
   --lightblack: #212121;
+  --sage: #728C69;
 }
 
 body {
@@ -128,10 +129,31 @@ li {
 }
 
 #flowerContainer {
+  position: absolute;
+  top: 130px;
+  left: 50px;
   width: 675px;
-  background-color: var(--grey);
+  height: 500px;
+  background-color: var(--sage);
   border-radius: 6px;
   display: inline-block;
+  user-drag: none;
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+#flower {
+    width:25%; /* you can use % */
+    height: auto;
+    user-drag: none;
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
 }
 
 .xbutton {

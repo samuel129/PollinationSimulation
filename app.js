@@ -113,9 +113,9 @@ if (document.getElementById("todolist")) {
 
 
 	
-
-
-
-
-
+if (document.getElementById("flowerclicker")) {
+	document.getElementById("flower").onclick = function () {
+		console.log("dog");
+	}
+}
 
