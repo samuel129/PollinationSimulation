@@ -4,8 +4,11 @@
   --black: #000000;
   --grey: #808080;
   --red: #ff4122;
-  --greybg: #949494;
+  --darkgrey: #949494;
   --lightblack: #212121;
+  --sage: #728C69;
+  --wood: #C19A6B;
+  --almond: #EFDECD;
 }
 
 body {
@@ -127,11 +130,72 @@ li {
   display: inline-block;
 }
 
-#flowerContainer {
-  width: 675px;
-  background-color: var(--grey);
+#wholeGameContainer {
+  position: absolute;
+  top: 130px;
+  left: 50px;
+  width: 900px;
+  height: 575px;
+  background-color: var(--sage);
   border-radius: 6px;
   display: inline-block;
+  user-drag: none;
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+#upgradeContainer {
+  position: absolute;
+  top: 80px;
+  right: 30px;
+  width: 350px;
+  height: 380px;
+  background-color: var(--wood);
+  border-radius: 6px;
+  display: inline-block;
+  user-drag: none;
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+.singleUpgradeContainer {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  width: 275px;
+  height: 80px;
+  background-color: var(--almond);
+  border-radius: 6px;
+  display: inline-block;
+  user-drag: none;
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+#flowerImg {
+  width:30%; /* you can use % */
+  height: auto;
+  user-drag: none;
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+#honeyCount {
+  position: absolute;
+  top: 2px;
+  right: 30px;
 }
 
 .xbutton {
