@@ -115,7 +115,9 @@ if (document.getElementById("todolist")) {
 	
 if (document.getElementById("flowerclicker")) {
 	const honeyElement = document.getElementById("honeyCount");
-	honeyElement.textContent = localStorage.getItem("honeyCount") + " Honey";
+	if (localStorage.getItem("honeyCount")) {
+		honeyElement.textContent = (localStorage.getItem("honeyCount")) + " Honey";
+	}
 
 	document.getElementById("flowerImg").onclick = function () {
 		let currHoney = +honeyElement.textContent.replace(/[^0-9]/gi, '') + 1;
