@@ -138,6 +138,7 @@ li {
   height: 575px;
   background-color: var(--sage);
   border-radius: 6px;
+  font-family: Silkscreen;
   display: inline-block;
   user-drag: none;
   -webkit-user-drag: none;
@@ -147,15 +148,16 @@ li {
   -ms-user-select: none;
 }
 
-#upgradeContainer {
+.upgradeContainer {
   position: absolute;
   top: 80px;
   right: 30px;
-  width: 350px;
+  width: 400px;
   height: 380px;
   background-color: var(--wood);
   border-radius: 6px;
   display: inline-block;
+  overflow: scroll;
   user-drag: none;
   -webkit-user-drag: none;
   user-select: none;
@@ -166,8 +168,8 @@ li {
 
 .singleUpgradeContainer {
   position: absolute;
-  top: 2px;
-  right: 2px;
+  top: 10px;
+  right: 20px;
   width: 275px;
   height: 80px;
   background-color: var(--almond);
@@ -183,6 +185,17 @@ li {
 
 #flowerImg {
   width:30%; /* you can use % */
+  height: auto;
+  user-drag: none;
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+#beeImg {
+  width:40%; /* you can use % */
   height: auto;
   user-drag: none;
   -webkit-user-drag: none;

@@ -124,5 +124,9 @@ if (document.getElementById("flowerclicker")) {
 		honeyElement.textContent = currHoney + " Honey";
 		localStorage.setItem("honeyCount", currHoney);
 	}
+
+	document.getElementById("beeImg").onclick = function () {
+		
+	}
 }
 
