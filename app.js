@@ -125,8 +125,29 @@ if (document.getElementById("flowerclicker")) {
 		localStorage.setItem("honeyCount", currHoney);
 	}
 
-	document.getElementById("beeImg").onclick = function () {
-		
+	document.getElementById("firstBee").onclick = function () {
+		console.log("dog");
+	}
+
+	window.onmousemove = function(e) {
+		if (e.target.classList.contains('firstBee')) {
+			var $target = e.target.nextElementSibling;
+
+			if (!$target.classList.contains('visible')) {
+				$target.classList.add('visible');
+			} else {
+				var offset = $target.parentElement.getBoundingClientRect();
+				var tipDist = 15;
+
+				$target.style.top = (e.clientY - offset.top + tipDist) + 'px';
+				$target.style.left = (e.clientX - offset.left + tipDist) + 'px';
+			}
+		} else {
+			var content = document.getElementsByClassName('content');
+			for (var i = 0; i < content.length; i++) {
+				content[i].classList.remove('visible');
+			}
+		} 
 	}
 }
 

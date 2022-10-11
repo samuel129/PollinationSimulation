@@ -164,6 +164,12 @@ li {
   -moz-user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.upgradeContainer::-webkit-scrollbar { 
+    display: none;  /* Safari and Chrome */
 }
 
 .singleUpgradeContainer {
@@ -194,8 +200,11 @@ li {
   -ms-user-select: none;
 }
 
-#beeImg {
-  width:40%; /* you can use % */
+#firstBee {
+  position: absolute;
+  top: 15px;
+  left: 10px;
+  width:18%; /* you can use % */
   height: auto;
   user-drag: none;
   -webkit-user-drag: none;
@@ -203,6 +212,27 @@ li {
   -moz-user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
+}
+
+.firstBeeTooltip {
+  position: relative;
+}
+
+.firstBeeTooltipContent {
+  position: absolute;
+  top: 0px;
+  left: 75px;
+  opacity: 0;
+  transition: opacity 0.5s ease in;
+  z-index: 99;
+}
+
+#firstBee:hover + .firstBeeTooltipContent {
+  opacity: 1;
+}
+
+.firstBeeTooltipContent {
+  margin: 0;
 }
 
 #honeyCount {
