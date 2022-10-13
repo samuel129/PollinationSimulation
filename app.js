@@ -130,17 +130,17 @@ if (document.getElementById("flowerclicker")) {
 	}
 
 	window.onmousemove = function(e) {
-		if (e.target.classList.contains('firstBee')) {
+		if (e.target.id == 'firstBee') {
 			var $target = e.target.nextElementSibling;
 
 			if (!$target.classList.contains('visible')) {
 				$target.classList.add('visible');
 			} else {
 				var offset = $target.parentElement.getBoundingClientRect();
-				var tipDist = 15;
+				var tipDist = 70;
 
-				$target.style.top = (e.clientY - offset.top + tipDist) + 'px';
-				$target.style.left = (e.clientX - offset.left + tipDist) + 'px';
+				$target.style.top = (e.clientY - offset.top - tipDist) + 'px';
+				$target.style.left = (e.clientX - offset.left + 20) + 'px';
 			}
 		} else {
 			var content = document.getElementsByClassName('content');
