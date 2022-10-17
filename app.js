@@ -111,26 +111,51 @@ if (document.getElementById("todolist")) {
 
 
 
+/*
+Bees will cost a base cost according to the stage of the game, cost will increase multiplicitavely for each bee purchased
+Upgrade costs will increase by a flat amount according to how much income the player increases by?
 
+*/
 	
 if (document.getElementById("flowerclicker")) {
+	let beeCounts = [0, 0, 0, 0, 0];
+
+	for (let i = 0; i <= 4; i++) {
+		if (localStorage.getItem("bee" + i + "Count")) {
+			beeCounts[i] = localStorage.getItem("bee" + i + "Count");
+			console.log("i = ", i, " ", beeCounts[i]);
+		}
+	}
+
 	const honeyElement = document.getElementById("honeyCount");
 	if (localStorage.getItem("honeyCount")) {
 		honeyElement.textContent = (localStorage.getItem("honeyCount")) + " Honey";
 	}
 
+
 	document.getElementById("flowerImg").onclick = function () {
-		let currHoney = +honeyElement.textContent.replace(/[^0-9]/gi, '') + 1;
+		let currHoney = +honeyElement.textContent.replace(/[^0-9]/gi, '') + 200;
 		honeyElement.textContent = currHoney + " Honey";
 		localStorage.setItem("honeyCount", currHoney);
 	}
 
-	document.getElementById("firstBee").onclick = function () {
-		console.log("dog");
+
+	document.getElementById("bee0").onclick = function () {
+		let cost = 50;
+
+		if (localStorage.getItem("honeyCount") > cost) {
+			honeyElement.textContent = (localStorage.getItem("honeyCount") - 50) + " Honey"; 
+			localStorage.setItem("honeyCount", localStorage.getItem("honeyCount") - 50);
+
+			beeCounts[0] = +beeCounts[0] + 1;
+			localStorage.setItem("bee0Count", beeCounts[0]);
+		}
 	}
 
+
+
 	window.onmousemove = function(e) {
-		if (e.target.id == 'firstBee') {
+		if (e.target.id == 'bee0') {
 			var $target = e.target.nextElementSibling;
 
 			if (!$target.classList.contains('visible')) {
@@ -140,7 +165,7 @@ if (document.getElementById("flowerclicker")) {
 				var tipDist = 70;
 
 				$target.style.top = (e.clientY - offset.top - tipDist) + 'px';
-				$target.style.left = (e.clientX - offset.left + 20) + 'px';
+				$target.style.left = (220) + 'px';
 			}
 		} else {
 			var content = document.getElementsByClassName('content');

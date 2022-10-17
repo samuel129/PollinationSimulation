@@ -200,7 +200,7 @@ li {
   -ms-user-select: none;
 }
 
-#firstBee {
+#bee0 {
   position: absolute;
   top: 15px;
   left: 10px;
@@ -214,11 +214,11 @@ li {
   -ms-user-select: none;
 }
 
-.firstBeeTooltip {
+.bee0Tooltip {
   position: relative;
 }
 
-.firstBeeTooltipContent {
+.bee0TooltipContent {
   position: absolute;
   top: 0px;
   left: 75px;
@@ -227,11 +227,11 @@ li {
   z-index: 99;
 }
 
-#firstBee:hover + .firstBeeTooltipContent {
+#bee0:hover + .bee0TooltipContent {
   opacity: 1;
 }
 
-.firstBeeTooltipContent {
+.bee0TooltipContent {`
   margin: 0;
 }
 
