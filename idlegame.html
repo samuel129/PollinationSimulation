@@ -10,9 +10,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@700&display=swap" rel="stylesheet">
 </head>
 <body class = "dark-theme">
-    <a href="./index.html">Home</a>
-    <a href="./apps.html">Apps Page</a><br>
-  <h1>Flower Clicker!</h1>
 
 
   <div id="wholeGameContainer">
@@ -23,13 +20,13 @@
 
 
     <div class="upgradeContainer">
+      <div id="bee0count">0</div>
       <div class="bee0Tooltip">
         <img id="bee0" onclick="myFunction()" src="./bee.png">
         <div class="bee0TooltipContent">
-          <h1>Purchase bee for 50 honey</h1>  
+          <h1 id="bee0cost">Purchase bee for 50 honey</h1>  
         </div>
       </div>
-
 
       <div class="singleUpgradeContainer"></div>
       <div style="top: 100px; right: 20px;" class="singleUpgradeContainer"></div>
@@ -38,10 +35,6 @@
       <div style="top: 370px; right: 20px;" class="singleUpgradeContainer"></div>
       <div style="top: 450px; right: 20px; background-color: #C19A6B; height: 10px;" class="singleUpgradeContainer"></div>
     </div>
-  </div>
-
-  <div>
-    <button class="light-switch">Light</button>
   </div>
 
     <script src="app.js"></script>

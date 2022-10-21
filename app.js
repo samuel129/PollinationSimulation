@@ -1,30 +1,5 @@
 'use strict';
 
-const lightSwitch = document.querySelector('.light-switch');
-
-let lightStatus = localStorage.getItem("lightStatus");
-
-if (lightStatus) {
-	document.body.className = lightStatus;
-}
-
-lightSwitch.addEventListener('click', function() {
-    document.body.classList.toggle('light-theme');
-    document.body.classList.toggle('dark-theme');
-
-	const className = document.body.className;
-	if (className == "light-theme"){
-		this.textContent = "Dark";
-	} else {
-		this.textContent = "Light";	
-	}
-
-	localStorage.setItem("lightStatus", className);
-});
-
-
-
-
 if (document.getElementById("count")) {
 	const countHeader = document.getElementById("count");
 	const incrementBtn = document.querySelector('.incrementBtn');
@@ -118,16 +93,31 @@ Upgrade costs will increase by a flat amount according to how much income the pl
 */
 	
 if (document.getElementById("flowerclicker")) {
+	const honeyElement = document.getElementById("honeyCount");
 	let beeCounts = [0, 0, 0, 0, 0];
+	let beeCosts = [50, 0, 0, 0, 0]
+	let income = 0;
+	incomeOverTime();
 
+	//loader for income
 	for (let i = 0; i <= 4; i++) {
 		if (localStorage.getItem("bee" + i + "Count")) {
 			beeCounts[i] = localStorage.getItem("bee" + i + "Count");
+			document.getElementById("bee" + i + "count").textContent = beeCounts[i];
 			console.log("i = ", i, " ", beeCounts[i]);
+			income = setIncome(i);
+			beeCosts[i] = beeCounts[0] ** 2;
+			document.getElementById("bee0cost").textContent = "Purchase bee for " + beeCosts[0] + " Honey";
 		}
 	}
 
-	const honeyElement = document.getElementById("honeyCount");
+	function setIncome(i) {
+		if (i == 0) {
+			return beeCounts[i] * 2;
+		}
+	}
+
+	//loading honey count from localstorage
 	if (localStorage.getItem("honeyCount")) {
 		honeyElement.textContent = (localStorage.getItem("honeyCount")) + " Honey";
 	}
@@ -140,16 +130,32 @@ if (document.getElementById("flowerclicker")) {
 	}
 
 
-	document.getElementById("bee0").onclick = function () {
-		let cost = 50;
 
-		if (localStorage.getItem("honeyCount") > cost) {
-			honeyElement.textContent = (localStorage.getItem("honeyCount") - 50) + " Honey"; 
-			localStorage.setItem("honeyCount", localStorage.getItem("honeyCount") - 50);
+	document.getElementById("bee0").onclick = function () {
+		beeCosts[0] = beeCounts[0] ** 2;
+
+		console.log(beeCosts[0]);
+
+		if (localStorage.getItem("honeyCount") > beeCosts[0]) {
+			honeyElement.textContent = (localStorage.getItem("honeyCount") - beeCosts[0]) + " Honey"; 
+			localStorage.setItem("honeyCount", localStorage.getItem("honeyCount") - beeCosts[0]);
 
 			beeCounts[0] = +beeCounts[0] + 1;
 			localStorage.setItem("bee0Count", beeCounts[0]);
+			document.getElementById("bee0count").textContent = beeCounts[0];
+			income = setIncome(0);
+			document.getElementById("bee0cost").textContent = "Purchase bee for " + beeCosts[0] + " Honey";
 		}
+	}
+
+
+
+	function incomeOverTime() {
+		let currHoney = +localStorage.getItem("honeyCount");
+		honeyElement.textContent = (currHoney + income) + " Honey";
+		localStorage.setItem("honeyCount", currHoney + income);
+		setTimeout(incomeOverTime, 1000);
+		console.log(income);
 	}
 
 
@@ -165,7 +171,7 @@ if (document.getElementById("flowerclicker")) {
 				var tipDist = 70;
 
 				$target.style.top = (e.clientY - offset.top - tipDist) + 'px';
-				$target.style.left = (220) + 'px';
+				$target.style.left = (70) + 'px';
 			}
 		} else {
 			var content = document.getElementsByClassName('content');
