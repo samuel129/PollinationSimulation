@@ -94,8 +94,8 @@ Upgrade costs will increase by a flat amount according to how much income the pl
 	
 if (document.getElementById("flowerclicker")) {
 	const honeyElement = document.getElementById("honeyCount");
-	let beeCounts = [0, 0, 0, 0, 0];
-	let beeCosts = [50, 0, 0, 0, 0]
+	let beeCounts = [1, 0, 0, 0, 0];
+	let beeCosts = [1, 0, 0, 0, 0]
 	let income = 0;
 	incomeOverTime();
 
@@ -106,8 +106,8 @@ if (document.getElementById("flowerclicker")) {
 			document.getElementById("bee" + i + "count").textContent = beeCounts[i];
 			console.log("i = ", i, " ", beeCounts[i]);
 			income = setIncome(i);
-			beeCosts[i] = beeCounts[0] ** 2;
-			document.getElementById("bee0cost").textContent = "Purchase bee for " + beeCosts[0] + " Honey";
+			beeCosts[i] = (+beeCounts[0] + 1) ** 2;
+			document.getElementById("bee0Tooltip").textContent = "Purchase bee for " + beeCosts[0] + " Honey";
 		}
 	}
 
@@ -132,9 +132,7 @@ if (document.getElementById("flowerclicker")) {
 
 
 	document.getElementById("bee0").onclick = function () {
-		beeCosts[0] = beeCounts[0] ** 2;
-
-		console.log(beeCosts[0]);
+		beeCosts[0] = (+beeCounts[0] + 1) ** 2;
 
 		if (localStorage.getItem("honeyCount") > beeCosts[0]) {
 			honeyElement.textContent = (localStorage.getItem("honeyCount") - beeCosts[0]) + " Honey"; 
@@ -144,11 +142,13 @@ if (document.getElementById("flowerclicker")) {
 			localStorage.setItem("bee0Count", beeCounts[0]);
 			document.getElementById("bee0count").textContent = beeCounts[0];
 			income = setIncome(0);
-			document.getElementById("bee0cost").textContent = "Purchase bee for " + beeCosts[0] + " Honey";
+			document.getElementById("bee0Tooltip").textContent = "Purchase bee for " + ((+beeCounts[0] + 1) ** 2) + " Honey";
 		}
 	}
 
-
+	document.getElementById("bee0UpgradeContainer").onclick = function () {
+		console.log("dog");
+	}
 
 	function incomeOverTime() {
 		let currHoney = +localStorage.getItem("honeyCount");
@@ -161,24 +161,16 @@ if (document.getElementById("flowerclicker")) {
 
 
 	window.onmousemove = function(e) {
+		var tooltip = document.getElementById("bee0Tooltip");
+		var tooltipContainer = document.getElementById("bee0TooltipContainer");
 		if (e.target.id == 'bee0') {
-			var $target = e.target.nextElementSibling;
-
-			if (!$target.classList.contains('visible')) {
-				$target.classList.add('visible');
-			} else {
-				var offset = $target.parentElement.getBoundingClientRect();
-				var tipDist = 70;
-
-				$target.style.top = (e.clientY - offset.top - tipDist) + 'px';
-				$target.style.left = (70) + 'px';
-			}
-		} else {
-			var content = document.getElementsByClassName('content');
-			for (var i = 0; i < content.length; i++) {
-				content[i].classList.remove('visible');
-			}
-		} 
+			tooltip.style.visibility = "visible";
+			tooltipContainer.style.visibility = "visible";
+			tooltipContainer.style.top = e.screenY - 210 + 'px';
+		}
+		else {
+			tooltip.style.visibility = "hidden";
+			tooltipContainer.style.visibility = "hidden";
+		}
 	}
 }
-

@@ -150,14 +150,14 @@ li {
 
 .upgradeContainer {
   position: absolute;
-  top: 80px;
-  right: 20px;
+  top: 8%;
+  right: 2%;
   width: 420px;
   height: 90%;
+  z-index: 10;
   background-color: var(--wood);
   border-radius: 6px;
   display: inline-block;
-  overflow: scroll;
   user-drag: none;
   -webkit-user-drag: none;
   user-select: none;
@@ -189,6 +189,21 @@ li {
   -ms-user-select: none;
 }
 
+.upgradeText {
+  position: absolute;
+  top: -20%;
+  left: 3%;
+  display: inline-block;
+  user-drag: none;
+  color: var(--lightblack);
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  font-family: Chakra Petch, sans-serif;
+}
+
 #flowerImg {
   width: 400px; /* you can use % */
   height: auto;
@@ -214,25 +229,31 @@ li {
   -ms-user-select: none;
 }
 
-.bee0Tooltip {
-  position: relative;
-}
-
-.bee0TooltipContent {
+#bee0Tooltip {
   position: absolute;
-  top: 0px;
-  left: 75px;
-  opacity: 0;
-  transition: opacity 0.5s ease in;
-  z-index: 99;
+  top: -20%;
+  left: 3%;
+  visibility: hidden;
+  z-index: 30;
+  font-family: Chakra Petch;
 }
 
-#bee0:hover + .bee0TooltipContent {
-  opacity: 1;
-}
-
-.bee0TooltipContent {
-  margin: 0;
+.tooltipContainer {
+  position: absolute;
+  top: 20%px;
+  left: -300px;
+  visibility: hidden;
+  width: 275px;
+  height: 80px;
+  background-color: var(--lightblack);
+  border-radius: 6px;
+  display: inline-block;
+  user-drag: none;
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
 }
 
 #bee0count {

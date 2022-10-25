@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500&display=swap" rel="stylesheet">
 </head>
 <body class = "dark-theme">
 
@@ -15,27 +16,26 @@
   <div id="wholeGameContainer">
     <h1 id="honeyCount" style="font-size:35px">0 Honey</h1>
 
-
     <img id="flowerImg" onclick="myFunction()" src="./flower.png">
 
 
     <div class="upgradeContainer">
       <div id="bee0count">0</div>
-      <div class="bee0Tooltip">
-        <img id="bee0" onclick="myFunction()" src="./bee.png">
-        <div class="bee0TooltipContent">
-          <h1 id="bee0cost">Purchase bee for 50 honey</h1>  
-        </div>
+      <img id="bee0" onclick="myFunction()" src="./bee.png">
+      <div class="tooltipContainer" id="bee0TooltipContainer">
+        <h3 id="bee0Tooltip">Purchase bee for 1 honey</h1> 
+      </div>
+      <div class="singleUpgradeContainer" id="bee0UpgradeContainer" onclick="myFunction()">
+        <h3 class="upgradeText">Worker bees now generate 2x honey per bee</h3>
       </div>
 
-      <div class="singleUpgradeContainer"></div>
       <div style="top: 100px; right: 20px;" class="singleUpgradeContainer"></div>
       <div style="top: 190px; right: 20px;" class="singleUpgradeContainer"></div>
       <div style="top: 280px; right: 20px;" class="singleUpgradeContainer"></div>
       <div style="top: 370px; right: 20px;" class="singleUpgradeContainer"></div>
       <div style="top: 450px; right: 20px; background-color: #C19A6B; height: 10px;" class="singleUpgradeContainer"></div>
     </div>
-  </div>
+  </div> 
 
     <script src="app.js"></script>
     <noscript>You need to enable JavaScript to view the full site.</noscript>
