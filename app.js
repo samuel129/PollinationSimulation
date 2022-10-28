@@ -94,13 +94,19 @@ Upgrade costs will increase by a flat amount according to how much income the pl
 	
 if (document.getElementById("flowerclicker")) {
 	const honeyElement = document.getElementById("honeyCount");
-	let beeCounts = [1, 0, 0, 0, 0];
-	let beeCosts = [1, 0, 0, 0, 0]
+	let beeCounts = [0, 0, 0, 0, 0];
+	let beeCosts = [1, 0, 0, 0, 0];
+	let upgradeStatus = [0, 0, 0, 0, 0]; //index = which bee, number = which upgrade
 	let income = 0;
 	incomeOverTime();
 
-	//loader for income
+	//loader for income and upgrade status for each bee
+
 	for (let i = 0; i <= 4; i++) {
+		if (localStorage.getItem("bee" + i + "UpgradeStatus")) {
+			upgradeStatus[i] = +localStorage.getItem("bee" + i + "UpgradeStatus");
+		}
+
 		if (localStorage.getItem("bee" + i + "Count")) {
 			beeCounts[i] = localStorage.getItem("bee" + i + "Count");
 			document.getElementById("bee" + i + "count").textContent = beeCounts[i];
@@ -112,8 +118,9 @@ if (document.getElementById("flowerclicker")) {
 	}
 
 	function setIncome(i) {
+		const bee0upgrades = [1, 2, 4, 6, 8]; //multipliers per upgrade
 		if (i == 0) {
-			return beeCounts[i] * 2;
+			return beeCounts[i] * 2 * bee0upgrades[upgradeStatus[0]];
 		}
 	}
 
@@ -147,7 +154,9 @@ if (document.getElementById("flowerclicker")) {
 	}
 
 	document.getElementById("bee0UpgradeContainer").onclick = function () {
-		console.log("dog");
+		upgradeStatus[0] = upgradeStatus[0] + 1;
+		income = setIncome(0);
+		localStorage.setItem("bee0UpgradeStatus", upgradeStatus[0])
 	}
 
 	function incomeOverTime() {
@@ -172,5 +181,23 @@ if (document.getElementById("flowerclicker")) {
 			tooltip.style.visibility = "hidden";
 			tooltipContainer.style.visibility = "hidden";
 		}
+	}
+
+	document.getElementById("resetHoneyButton").onclick = function () {
+		localStorage.setItem("honeyCount", 0);
+		honeyElement.textContent = "0 Honey";
+	}
+
+	document.getElementById("resetUpgradesButton").onclick = function () {
+		localStorage.setItem("bee0UpgradeStatus", 0);
+		upgradeStatus[0] = 0;
+		income = setIncome(0);
+	}
+
+	document.getElementById("resetBeeCountButton").onclick = function () {
+		 beeCounts[0] = 0;
+		 localStorage.setItem("bee0Count", 0);
+		 document.getElementById("bee0count").textContent = 0;
+		 income = setIncome(0);
 	}
 }

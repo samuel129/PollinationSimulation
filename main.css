@@ -310,3 +310,26 @@ li {
   color: var(--btnFontColor);
   background-color: var(--btnBg);
 }
+
+.devButtons {
+  position: absolute;
+  top: 800px;
+  height: 40px;
+  width: 80px;
+  border-radius: 12px;
+  border: none;
+  color: var(--btnFontColor);
+  background-color: var(--btnBg);
+}
+
+#resetHoneyButton {
+  left: 100px;
+}
+
+#resetUpgradesButton {
+  left: 200px;
+}
+
+#resetBeeCountButton {
+  left: 300px;
+}
