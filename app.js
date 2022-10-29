@@ -97,6 +97,12 @@ if (document.getElementById("flowerclicker")) {
 	let beeCounts = [0, 0, 0, 0, 0];
 	let beeCosts = [1, 0, 0, 0, 0];
 	let upgradeStatus = [0, 0, 0, 0, 0]; //index = which bee, number = which upgrade
+	let beeUpgrades = {
+	bee0_0: "Worker bees now generate 2x honey per bee",
+	bee0_1: "Worker bees generate gay",
+	bee0_2: "Worker bees become straight"
+	};
+	console.log(beeUpgrades["bee0_1"]);
 	let income = 0;
 	incomeOverTime();
 
@@ -105,6 +111,7 @@ if (document.getElementById("flowerclicker")) {
 	for (let i = 0; i <= 4; i++) {
 		if (localStorage.getItem("bee" + i + "UpgradeStatus")) {
 			upgradeStatus[i] = +localStorage.getItem("bee" + i + "UpgradeStatus");
+			document.getElementById("bee" + i + "UpgradeText").textContent = beeUpgrades["bee" + i + "_" + upgradeStatus[i]];
 		}
 
 		if (localStorage.getItem("bee" + i + "Count")) {
@@ -157,6 +164,7 @@ if (document.getElementById("flowerclicker")) {
 		upgradeStatus[0] = upgradeStatus[0] + 1;
 		income = setIncome(0);
 		localStorage.setItem("bee0UpgradeStatus", upgradeStatus[0])
+		document.getElementById("bee0UpgradeText").textContent = beeUpgrades["bee0" + "_" + upgradeStatus[0]];
 	}
 
 	function incomeOverTime() {
@@ -172,11 +180,13 @@ if (document.getElementById("flowerclicker")) {
 	window.onmousemove = function(e) {
 		var tooltip = document.getElementById("bee0Tooltip");
 		var tooltipContainer = document.getElementById("bee0TooltipContainer");
+
 		if (e.target.id == 'bee0') {
 			tooltip.style.visibility = "visible";
 			tooltipContainer.style.visibility = "visible";
-			tooltipContainer.style.top = e.screenY - 210 + 'px';
+			tooltipContainer.style.top = e.screenY - 240 + 'px';
 		}
+
 		else {
 			tooltip.style.visibility = "hidden";
 			tooltipContainer.style.visibility = "hidden";
@@ -192,6 +202,7 @@ if (document.getElementById("flowerclicker")) {
 		localStorage.setItem("bee0UpgradeStatus", 0);
 		upgradeStatus[0] = 0;
 		income = setIncome(0);
+		document.getElementById("bee" + i + "UpgradeText").textContent = beeUpgrades["bee" + i + "_" + upgradeStatus[i]];	
 	}
 
 	document.getElementById("resetBeeCountButton").onclick = function () {

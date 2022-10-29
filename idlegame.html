@@ -1,46 +1,51 @@
 <!DOCTYPE html>
 <html lang = "en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title id="flowerclicker">Flower Clicker</title>
-  <link rel="stylesheet" type="text/css" href="main.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500&display=swap" rel="stylesheet">
-</head>
-<body class = "dark-theme">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title id="flowerclicker">Flower Clicker</title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Silkscreen&display=swap" rel="stylesheet">
+  </head>
+  <body class = "dark-theme">
 
+    <div id="wholeGameContainer">
 
-  <div id="wholeGameContainer">
-    <h1 id="honeyCount" style="font-size:35px">0 Honey</h1>
+      <img id="flowerImg" onclick="myFunction()" src="./flower.png">
 
-    <img id="flowerImg" onclick="myFunction()" src="./flower.png">
+      <button id="resetHoneyButton" onclick="myFunction()" class="devButtons">Reset Honey</button>
+      <button id="resetBeeCountButton" onclick="myFunction()" class="devButtons">Reset Bee Count</button>
+      <button id="resetUpgradesButton" onclick="myFunction()" class="devButtons">Reset Upgrades</button>
 
-    <button id="resetHoneyButton" onclick="myFunction()" class="devButtons">Reset Honey</button>
-    <button id="resetBeeCountButton" onclick="myFunction()" class="devButtons">Reset Bee Count</button>
-    <button id="resetUpgradesButton" onclick="myFunction()" class="devButtons">Reset Upgrades</button>
+      <div id="rightContainer">
+        <h1 id="honeyCount" style="font-size:35px">0 Honey</h1>
+        <div class="upgradeContainer">
+          <div id="bee0count">0</div>
 
-    <div class="upgradeContainer">
-      <div id="bee0count">0</div>
-      <img id="bee0" onclick="myFunction()" src="./bee.png">
-      <div class="tooltipContainer" id="bee0TooltipContainer">
-        <h3 id="bee0Tooltip">Purchase bee for 1 honey</h1> 
+          <img id="bee0" onclick="myFunction()" src="./bee.png">
+
+          <div class="tooltipContainer" id="bee0TooltipContainer">
+            <h3 id="bee0Tooltip">Purchase bee for 1 honey</h3> 
+          </div>
+
+          <div class="singleUpgradeContainer" id="bee0UpgradeContainer" onclick="myFunction()">
+            <h3 id="bee0UpgradeText">Worker bees now generate <span style="font-weight: 700;">2x</span> honey per bee</h3>
+          </div>
+
+          <div style="top: 100px; right: 20px;" class="singleUpgradeContainer"></div>
+          <div style="top: 190px; right: 20px;" class="singleUpgradeContainer"></div>
+          <div style="top: 280px; right: 20px;" class="singleUpgradeContainer"></div>
+          <div style="top: 370px; right: 20px;" class="singleUpgradeContainer"></div>
+          <div style="top: 460px; right: 20px;" class="singleUpgradeContainer"></div>
+        </div>
       </div>
-      <div class="singleUpgradeContainer" id="bee0UpgradeContainer" onclick="myFunction()">
-        <h3 class="upgradeText">Worker bees now generate 2x honey per bee</h3>
-      </div>
-
-      <div style="top: 100px; right: 20px;" class="singleUpgradeContainer"></div>
-      <div style="top: 190px; right: 20px;" class="singleUpgradeContainer"></div>
-      <div style="top: 280px; right: 20px;" class="singleUpgradeContainer"></div>
-      <div style="top: 370px; right: 20px;" class="singleUpgradeContainer"></div>
-      <div style="top: 450px; right: 20px; background-color: #C19A6B; height: 10px;" class="singleUpgradeContainer"></div>
-    </div>
-  </div> 
+    </div> 
 
     <script src="app.js"></script>
     <noscript>You need to enable JavaScript to view the full site.</noscript>
-</body>
+  </body>
 </html>
