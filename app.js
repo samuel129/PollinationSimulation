@@ -98,11 +98,10 @@ if (document.getElementById("flowerclicker")) {
 	let beeCosts = [1, 0, 0, 0, 0];
 	let upgradeStatus = [0, 0, 0, 0, 0]; //index = which bee, number = which upgrade
 	let beeUpgrades = {
-	bee0_0: "Worker bees now generate 2x honey per bee",
-	bee0_1: "Worker bees generate gay",
-	bee0_2: "Worker bees become straight"
+	bee0_0: "Worker bees will now generate 2x honey per bee",
+	bee0_1: "Worker bees will now generate 4x honey per bee",
+	bee0_2: "Worker bees will now generate 8x honey per bee"
 	};
-	console.log(beeUpgrades["bee0_1"]);
 	let income = 0;
 	incomeOverTime();
 
@@ -121,13 +120,6 @@ if (document.getElementById("flowerclicker")) {
 			income = setIncome(i);
 			beeCosts[i] = (+beeCounts[0] + 1) ** 2;
 			document.getElementById("bee0Tooltip").textContent = "Purchase bee for " + beeCosts[0] + " Honey";
-		}
-	}
-
-	function setIncome(i) {
-		const bee0upgrades = [1, 2, 4, 6, 8]; //multipliers per upgrade
-		if (i == 0) {
-			return beeCounts[i] * 2 * bee0upgrades[upgradeStatus[0]];
 		}
 	}
 
@@ -167,11 +159,18 @@ if (document.getElementById("flowerclicker")) {
 		document.getElementById("bee0UpgradeText").textContent = beeUpgrades["bee0" + "_" + upgradeStatus[0]];
 	}
 
+	function setIncome(i) {
+		const bee0upgrades = [1, 2, 4, 8, 16]; //multipliers per upgrade
+		if (i == 0) {
+			return Math.trunc((beeCounts[i] * 2 * bee0upgrades[upgradeStatus[0]]) * .1);
+		}
+	}
+
 	function incomeOverTime() {
 		let currHoney = +localStorage.getItem("honeyCount");
 		honeyElement.textContent = (currHoney + income) + " Honey";
 		localStorage.setItem("honeyCount", currHoney + income);
-		setTimeout(incomeOverTime, 1000);
+		setTimeout(incomeOverTime, 100);
 		console.log(income);
 	}
 
@@ -192,6 +191,9 @@ if (document.getElementById("flowerclicker")) {
 			tooltipContainer.style.visibility = "hidden";
 		}
 	}
+
+
+// D E V     B U T T O N S
 
 	document.getElementById("resetHoneyButton").onclick = function () {
 		localStorage.setItem("honeyCount", 0);
