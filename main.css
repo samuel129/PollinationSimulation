@@ -11,6 +11,8 @@
   --almond: #EFDECD;
   --woodhighlight: #F5D1A9;
   --darkwood: #7a5230;
+  --moneygreen: #598C58;
+
 }
 
 body {
@@ -213,6 +215,13 @@ li {
   background-color: var(--woodhighlight);
 }
 
+.upgradeCost {
+  position: absolute;
+  bottom: 0%;
+  right: 2%;
+  color: var(--moneygreen);
+}
+
 #bee0UpgradeText {
   position: absolute;
   top: -20%;
@@ -244,7 +253,21 @@ li {
   position: absolute;
   top: 15px;
   left: 10px;
-  width:18%; /* you can use % */
+  width:20%; /* you can use % */
+  height: auto;
+  user-drag: none;
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+#bee1 {
+  position: absolute;
+  top: 105px;
+  left: 10px;
+  width:20%; /* you can use % */
   height: auto;
   user-drag: none;
   -webkit-user-drag: none;
@@ -297,7 +320,7 @@ li {
   text-align: center;
   width: 100%;
   left: 0px;
-  top: -4%;
+  top: -3%;
   z-index: 15;
 }
 
