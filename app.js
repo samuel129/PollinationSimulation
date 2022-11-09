@@ -93,11 +93,13 @@ Upgrade costs will increase by a flat amount according to how much income the pl
 */
 	
 if (document.getElementById("flowerclicker")) {
-	const honeyElement = document.getElementById("honeyCount");
+
 	let beeCounts = [0, 0, 0, 0, 0];
 	let beeCosts = [1, 0, 0, 0, 0];
 	let upgradeStatus = [0, 0, 0, 0, 0]; //index = which bee, number = which upgrade
+
 	let income = 0;
+
 	incomeOverTime();
 
 	let beeUpgrades = {
@@ -105,9 +107,9 @@ if (document.getElementById("flowerclicker")) {
 	bee0_1: "Worker bees will now generate 4x honey per bee", bee0_1cost: 10000,
 	bee0_2: "Worker bees will now generate 8x honey per bee", bee0_2cost: 15000,
 
-	bee1_0: "Wizard bees will now generate 2x honey per bee", bee1_0cost: 50000,
-	bee1_1: "Wizard bees will now generate 4x honey per bee", bee1_1cost: 150000,
-	bee1_2: "Wizard bees will now generate 8x honey per bee", bee1_2cost: 1000000
+	bee1_0: "Wizard bees will now generate 2x honey per bee", bee1_0cost: 500000,
+	bee1_1: "Wizard bees will now generate 4x honey per bee", bee1_1cost: 1000000,
+	bee1_2: "Wizard bees will now generate 8x honey per bee", bee1_2cost: 5000000
 	};
 
 	//loader for income and upgrade status for each bee
@@ -131,12 +133,12 @@ if (document.getElementById("flowerclicker")) {
 			income = setIncome();
 
 			if (i == 0) {
-				beeCosts[i] = (+beeCounts[i] + 1) ** 2;
+				beeCosts[i] = getCostFormula(i);
 				document.getElementById("bee" + i + "Tooltip").textContent = "Purchase bee for " + beeCosts[i] + " Honey";
 			}
 
 			else if (i == 1) {
-				beeCosts[i] = 200000 + ((+beeCounts[1] + 1) ** 2);
+				beeCosts[i] = getCostFormula(i);
 				document.getElementById("bee" + i + "Tooltip").textContent = "Purchase bee for " + beeCosts[i] + " Honey";
 			}
 		}
@@ -155,7 +157,7 @@ if (document.getElementById("flowerclicker")) {
 
 
 	document.getElementById("bee0").onclick = function () {
-		beeCosts[0] = (+beeCounts[0] + 1) ** 2;
+		beeCosts[0] = getCostFormula(0);
 
 		if (localStorage.getItem("honeyCount") > beeCosts[0]) {
 			localStorage.setItem("honeyCount", localStorage.getItem("honeyCount") - beeCosts[0]);
@@ -164,13 +166,13 @@ if (document.getElementById("flowerclicker")) {
 			localStorage.setItem("bee0Count", beeCounts[0]);
 			document.getElementById("bee0count").textContent = beeCounts[0];
 			income = setIncome();
-			document.getElementById("bee0Tooltip").textContent = "Purchase bee for " + ((+beeCounts[0] + 1) ** 2) + " Honey";
+			document.getElementById("bee0Tooltip").textContent = "Purchase bee for " + (getCostFormula(0)) + " Honey";
 			setHoneyDisplay(localStorage.getItem("honeyCount"));	
 		}
 	}
 
 	document.getElementById("bee1").onclick = function () {
-		beeCosts[1] = 200000 + ((+beeCounts[1] + 1) ** 2);
+		beeCosts[1] = getCostFormula(1);
 
 		if (localStorage.getItem("honeyCount") > beeCosts[1]) {
 			localStorage.setItem("honeyCount", localStorage.getItem("honeyCount") - beeCosts[1]);
@@ -179,7 +181,7 @@ if (document.getElementById("flowerclicker")) {
 			localStorage.setItem("bee1Count", beeCounts[1]);
 			document.getElementById("bee1count").textContent = beeCounts[1];
 			income = setIncome(income, 1);
-			document.getElementById("bee1Tooltip").textContent = "Purchase bee for " + (200000 + ((+beeCounts[1] + 1) ** 2)) + " Honey";
+			document.getElementById("bee1Tooltip").textContent = "Purchase bee for " + (getCostFormula(1)) + " Honey";
 			setHoneyDisplay(localStorage.getItem("honeyCount"));
 		}
 	}
@@ -208,6 +210,16 @@ if (document.getElementById("flowerclicker")) {
 		}
 	}
 
+	function getCostFormula(i) {
+		if (i == 0) {
+			return (+beeCounts[0] + 1) ** 2;
+		}
+
+		if (i == 1) {
+			return (200000 + ((+beeCounts[1] * 20) ** 2));
+		}
+	}
+
 	function setIncome() {
 		const bee0upgrades = [1, 2, 4, 8, 16]; //multipliers per upgrade
 		const bee1upgrades = [1, 2, 4, 8, 16];
@@ -218,11 +230,10 @@ if (document.getElementById("flowerclicker")) {
 				income += Math.trunc((beeCounts[i] * 2 * bee0upgrades[upgradeStatus[0]]) * .8);
 			}
 
-			if (i == 1) {
+			else if (i == 1) {
 				income += Math.trunc((beeCounts[i] * 100 * bee0upgrades[upgradeStatus[1]]) * .8)
 			}
 		}
-
 		return income;
 	}
 
@@ -298,7 +309,7 @@ if (document.getElementById("flowerclicker")) {
 
 	document.getElementById("resetHoneyButton").onclick = function () {
 		localStorage.setItem("honeyCount", 0);
-		honeyElement.textContent = "0 Honey";
+		document.getElementById("honeyCount").textContent = "0 Honey";
 	}
 
 	document.getElementById("resetUpgradesButton").onclick = function () {
