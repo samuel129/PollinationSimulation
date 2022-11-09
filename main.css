@@ -238,8 +238,24 @@ li {
   font-weight: 400;
 }
 
+#bee1UpgradeText {
+  position: absolute;
+  top: -20%;
+  left: 3%;
+  display: inline-block;
+  user-drag: none;
+  color: var(--lightblack);
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  font-family: Silkscreen;
+  font-weight: 400;
+}
+
 #flowerImg {
-  width: 400px; /* you can use % */
+  width: 400px;
   height: auto;
   user-drag: none;
   -webkit-user-drag: none;
@@ -287,6 +303,16 @@ li {
   font-weight: 400;
 }
 
+#bee1Tooltip {
+  position: absolute;
+  top: -20%;
+  left: 3%;
+  visibility: hidden;
+  z-index: 30;
+  font-family: Silkscreen;
+  font-weight: 400;
+}
+
 .tooltipContainer {
   position: absolute;
   top: 20%px;
@@ -309,6 +335,16 @@ li {
   position: absolute;
   top: 60px;
   left: 65px;
+  text-shadow: 0 0 15px var(--black);
+  z-index: 2;
+  font-family: Silkscreen;
+  font-weight: 600;
+}
+
+#bee1count {
+  position: absolute;
+  top: 152px;
+  left: 70px;
   text-shadow: 0 0 15px var(--black);
   z-index: 2;
   font-family: Silkscreen;
