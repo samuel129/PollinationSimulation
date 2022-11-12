@@ -193,26 +193,38 @@ if (document.getElementById("pollinationsimulation")) {
 	}
 
 	document.getElementById("bee0UpgradeContainer").onclick = function () {
+		//checking if user has enough pollen
 		if (localStorage.getItem("pollenCount") >= beeUpgrades["bee0_" + upgradeStatus[0] + "cost"]) {
 			localStorage.setItem("pollenCount", localStorage.getItem("pollenCount") - beeUpgrades["bee0_" + upgradeStatus[0] + "cost"])  
+
 			upgradeStatus[0] = upgradeStatus[0] + 1;
+
 			income = setIncome();
+
 			localStorage.setItem("bee0UpgradeStatus", upgradeStatus[0])
 			document.getElementById("bee0UpgradeText").textContent = beeUpgrades["bee0_" + upgradeStatus[0]];
 			document.getElementById("bee0UpgradeCost").textContent = "$" + beeUpgrades["bee0_" + upgradeStatus[0] + "cost"];
+
 			setpollenDisplay(+localStorage.getItem("pollenCount"));
+			document.getElementById("bee0Income").textContent = (Math.trunc((beeCounts[0] * 2 * bee0upgrades[upgradeStatus[0]]) * .8)) + " pollen per second"
 		}
 	}
 
 	document.getElementById("bee1UpgradeContainer").onclick = function () {
+		//checking if user has enough pollen
 		if (localStorage.getItem("pollenCount") >= beeUpgrades["bee1_" + upgradeStatus[1] + "cost"]) {
 			localStorage.setItem("pollenCount", localStorage.getItem("pollenCount") - beeUpgrades["bee1_" + upgradeStatus[1] + "cost"])  
+
 			upgradeStatus[1] = upgradeStatus[1] + 1;
+
 			income = setIncome();
+
 			localStorage.setItem("bee1UpgradeStatus", upgradeStatus[1])
 			document.getElementById("bee1UpgradeText").textContent = beeUpgrades["bee1_" + upgradeStatus[1]];
 			document.getElementById("bee1UpgradeCost").textContent = "$" + beeUpgrades["bee1_" + upgradeStatus[1] + "cost"];
+			
 			setpollenDisplay(+localStorage.getItem("pollenCount"));
+			document.getElementById("bee1Income").textContent = (Math.trunc((beeCounts[1] * 100 * bee0upgrades[upgradeStatus[1]]) * .8)) + " pollen per second"
 		}
 	}
 
