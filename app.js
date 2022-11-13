@@ -262,14 +262,77 @@ if (document.getElementById("pollinationsimulation")) {
 	}
 
 	function setpollenDisplay(pollen) {
+		pollen = pollen.toString();
+		let pollenLength = pollen.toString().length;
 
-		if (pollen.toString().length >= 7) {
-			document.getElementById("pollenCount").textContent = (pollen.toExponential(3)) + " pollen";
-		}
+		//above hundred trillion
+		if (pollenLength >= 16) {
+				document.getElementById("pollenCount").textContent = ((+pollen).toExponential(3)) + " pollen";
+			}
+
+		//trillions
+		else if (pollenLength >= 13) {
+
+			if (pollenLength == 13) {
+				document.getElementById("pollenCount").textContent = pollen.slice(3,3) + "." + pollen.slice(3,5)+ "t pollen";
+			}
+
+			else if (pollenLength == 14) {
+				document.getElementById("pollenCount").textContent = pollen.slice(1,3) + "." + pollen.slice(3,5)+ "t pollen";
+			}
+
+			else if (pollenLength == 15) {
+				document.getElementById("pollenCount").textContent = pollen.slice(2,3) + "." + pollen.slice(3,5)+ "t pollen";
+			}
+
+			else {
+				document.getElementById("pollenCount").textContent = pollen.slice(0,3) + "." + pollen.slice(3,5)+ "t pollen";
+			}
+
+			}
+
+		//billions
+		else if (pollenLength >= 10) {
+
+			if (pollenLength == 10) {
+				document.getElementById("pollenCount").textContent = pollen.slice(3,3) + "." + pollen.slice(3,5)+ "b pollen";
+			}
+
+			else if (pollenLength == 11) {
+				document.getElementById("pollenCount").textContent = pollen.slice(1,3) + "." + pollen.slice(3,5)+ "b pollen";
+			}
+
+			else if (pollenLength == 12) {
+				document.getElementById("pollenCount").textContent = pollen.slice(2,3) + "." + pollen.slice(3,5)+ "b pollen";
+			}
+
+			else {
+				document.getElementById("pollenCount").textContent = pollen.slice(0,3) + "." + pollen.slice(3,5)+ "b pollen";
+			}
+
+			}
+
+		//millions
+		else if (pollenLength >= 7) {
+
+			if (pollenLength == 7) {
+				document.getElementById("pollenCount").textContent = pollen.slice(0,1) + "." + pollen.slice(1,4)+ "m pollen";
+			}
+
+			else if (pollenLength == 8) {
+				document.getElementById("pollenCount").textContent = pollen.slice(0,2) + "." + pollen.slice(2,5)+ "m pollen";
+			}
+
+			else if (pollenLength == 9) {
+				document.getElementById("pollenCount").textContent = pollen.slice(0,3) + "." + pollen.slice(3,6)+ "m pollen";
+			}
+			}
 
 		else {
 			document.getElementById("pollenCount").textContent = pollen + " pollen";
 		}
+
+		console.log(pollen);
 	}
 
 	window.onmousemove = function(e) {
