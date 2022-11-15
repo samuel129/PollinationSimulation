@@ -360,7 +360,15 @@ li {
   font-weight: 600;
 }
 
-#pollenCount {
+#totalIncome {
+  top:7%;
+}
+
+#pollenLetters {
+  top: 1.5%;
+}
+
+.pollenCount {
   position: absolute;
   text-align: center;
   width: 100%;

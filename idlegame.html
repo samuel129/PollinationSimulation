@@ -22,8 +22,11 @@
       <button id="resetUpgradesButton" onclick="myFunction()" class="devButtons">Reset Upgrades</button>
       <button id="addPollen" onclick="myFunction()" class="devButtons">Add 200k Pollen</button>
 
-      <div id="rightContainer">
-        <h1 id="pollenCount" style="font-size:35px">0 Pollen</h1>
+      <h1 id="pollenCount" class="pollenCount" style="font-size:35px">0</h1>
+      <h1 id="pollenLetters" class="pollenCount">Pollen</h1>
+      <h3 id="totalIncome" class="pollenCount"></h3>
+
+      <div id="rightContainer">  
         <div class="upgradeContainer">
           <div id="bee0count">0</div>
           <div id="bee1count">0</div>
@@ -46,7 +49,7 @@
           </div>
 
           <div class="singleUpgradeContainer" id="bee0UpgradeContainer" onclick="myFunction()">
-            <h3 id="bee0UpgradeText">Flies now generate <span style="font-weight: 700;">2x</span> Pollen per bee</h3>
+            <h3 id="bee0UpgradeText">Flies now generate <span style="font-weight: 700;">2x</span>  per bee</h3>
             <div class="upgradeCost" id="bee0UpgradeCost"></div>
           </div>
 
