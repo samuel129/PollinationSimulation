@@ -12,7 +12,8 @@
   --woodhighlight: #F5D1A9;
   --darkwood: #7a5230;
   --moneygreen: #598C58;
-
+  --offwhite: #F4F0E0;
+  --creambrulee: #E8DBD5;
 }
 
 body {
@@ -157,9 +158,9 @@ li {
   bottom: 0px;
   width: 420px;
   height: 90%;
-  z-index: 10;
-  background-color: var(--wood);
-  border-radius: 6px;
+  -moz-border-radius: 0px;
+  -webkit-border-radius: 0px 0px 6px 6px;
+  border-radius: 0px 0px 6px 6px; 
   display: inline-block;
   user-drag: none;
   -webkit-user-drag: none;
@@ -171,8 +172,46 @@ li {
   scrollbar-width: none;  /* Firefox */
 }
 
+#beeUpgradeContainer {
+  background-color: var(--wood);
+  z-index: 1;
+}
+
+#flowerUpgradeContainer {
+  background-color: var(--creambrulee);
+  z-index: -1;
+}
+
 .upgradeContainer::-webkit-scrollbar { 
     display: none;  /* Safari and Chrome */
+}
+
+.tabs {
+  position: absolute;
+  top: -3%;
+  height: 26px;
+  width: 80px;
+  -moz-border-radius: 0px;
+  -webkit-border-radius: 6px 6px 0px 0px;
+  border-radius: 6px 6px 0px 0px; 
+  border: none;
+  font-family: Silkscreen;
+  background-color: var(--wood);
+}
+
+.tabText {
+  position: relative;
+  font-size: 110%;
+  top: 0px;
+  color: var(--white);
+  text-shadow: 2px 0 #000, -2px 0 #000, 0 2px #000, 0 -2px #000,
+  1px 1px #000, -1px -1px #000, 1px -1px #000, -1px 1px #000;
+}
+
+#flowerTab {
+  left: 85px;
+  background-color: var(--offwhite);
+  z-index: -2;
 }
 
 #rightContainer {
@@ -361,20 +400,20 @@ li {
 }
 
 #totalIncome {
-  top:7%;
+  top:8%;
 }
 
 #pollenLetters {
-  top: 1.5%;
+  top: 2.7%;
 }
 
-.pollenCount {
+.centeredText {
   position: absolute;
   text-align: center;
   width: 100%;
   left: 0px;
-  top: -3%;
-  z-index: 15;
+  top: -1.5%;
+  z-index: 1;
   text-shadow: 2px 0 #000, -2px 0 #000, 0 2px #000, 0 -2px #000,
   1px 1px #000, -1px -1px #000, 1px -1px #000, -1px 1px #000;
 }
