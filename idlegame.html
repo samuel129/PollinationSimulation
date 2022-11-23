@@ -10,7 +10,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Silkscreen&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
   </head>
+
+
+
   <body class = "dark-theme">
 
     <div id="wholeGameContainer">
@@ -26,18 +30,31 @@
       <h1 id="pollenLetters" class="centeredText">Pollen</h1>
       <h3 id="totalIncome" class="centeredText"></h3>
 
+
+
+
+
+
+
+
+
       <div id="rightContainer">
-        <h1 class="centeredText">upgrades</h3>
 
-        <div class="upgradeContainer" id="beeUpgradeContainer">
-
-          <button class="tabs" id="beeTab" onclick="myFunction()">
-            <span class="tabText">Bees</span>
+        <button class="tabs" id="beeTab" onclick="myFunction()">
+            <span class="tabText">Bee</span>
           </button>
 
           <button class="tabs" id="flowerTab" onclick="myFunction()">
             <span class="tabText">Flower</span>
           </button>
+
+          <button class="tabs" id="clickerTab" onclick="myFunction()">
+            <span class="tabText">Clicker</span>
+          </button>
+
+        <h1 class="centeredText">upgrades</h3>
+
+        <div class="upgradeContainer" id="beeUpgradeContainer">
 
           <div id="bee0count">0</div>
           <div id="bee1count">0</div>
@@ -60,12 +77,12 @@
           </div>
 
           <div class="singleUpgradeContainer" id="bee0UpgradeContainer" onclick="myFunction()">
-            <h3 id="bee0UpgradeText">Flies now generate <span style="font-weight: 700;">2x</span>  per bee</h3>
+            <h4 id="bee0UpgradeText">Flies now generate <span style="font-weight: 700;">2x</span>  per bee</h3>
             <div class="upgradeCost" id="bee0UpgradeCost"></div>
           </div>
 
           <div style="top: 100px; right: 20px;" class="singleUpgradeContainer" id="bee1UpgradeContainer" onclick="myFunction()">
-            <h3 id="bee1UpgradeText">Wizard bees now generate <span style="font-weight: 700;">2x</span> Pollen per bee</h3>
+            <h4 id="bee1UpgradeText">Wizard bees now generate <span style="font-weight: 700;">2x</span> Pollen per bee</h3>
             <div class="upgradeCost" id="bee1UpgradeCost"></div>
           </div>
 
@@ -75,36 +92,89 @@
           <div style="top: 460px; right: 20px;" class="singleUpgradeContainer"><div class="upgradeCost" id="bee5UpgradeCost"></div></div>
         </div>
 
+
+
+
+
+
+
+
+
         <div class="upgradeContainer" id="flowerUpgradeContainer">
 
           <div id="bee0count">0</div>
           <div id="bee1count">0</div>
 
-          <img id="bee0" onclick="myFunction()" src="./bee0.png">
-          <img id="bee1" onclick="myFunction()" src="./bee1.png">
+          <img id="bee0" onclick="myFunction()" src="./fillerart.png">
+          <img id="bee1" onclick="myFunction()" src="./fillerart.png">
 
-          <div class="tooltipContainer" id="bee0TooltipContainer">
-            <h3 id="bee0Tooltip">Purchase worker bee for 1 Pollen</h3> 
+          <div class="tooltipContainer" id="">
+            <h3 id="">Purchase worker bee for 1 Pollen</h3> 
             <ol class="beeStatsList">
-              <li id="bee0Income">0 pollen per second</li>
+              <li id="">0 pollen per second</li>
             </ol>
           </div>
 
-          <div class="tooltipContainer" id="bee1TooltipContainer">
+          <div class="tooltipContainer" id="">
             <h3 id="bee1Tooltip">Purchase wizard bee for 200000 Pollen</h3>
             <ol class="beeStatsList">
               <li id="bee1Income">0 pollen per second</li>
             </ol>
           </div>
 
-          <div class="singleUpgradeContainer" id="bee0UpgradeContainer" onclick="myFunction()">
-            <h3 id="bee0UpgradeText">Flies now generate <span style="font-weight: 700;">2x</span>  per bee</h3>
-            <div class="upgradeCost" id="bee0UpgradeCost"></div>
+          <div class="singleUpgradeContainer" id="flower0UpgradeContainer" onclick="myFunction()">
+            <h3 id="flower0UpgradeText"></h3>
+            <div class="upgradeCost" id=""></div>
+          </div>
+
+          <div style="top: 100px; right: 20px;" class="singleUpgradeContainer" id="flower1UpgradeContainer" onclick="myFunction()">
+            <h3 id="flower1UpgradeText"></h3>
+            <div class="upgradeCost" id=""></div>
+          </div>
+
+          <div style="top: 190px; right: 20px;" class="singleUpgradeContainer"><div class="upgradeCost" id="flower2UpgradeCost"></div></div>
+          <div style="top: 280px; right: 20px;" class="singleUpgradeContainer"><div class="upgradeCost" id="flower3UpgradeCost"></div></div>
+          <div style="top: 370px; right: 20px;" class="singleUpgradeContainer"><div class="upgradeCost" id="flower4UpgradeCost"></div></div>
+          <div style="top: 460px; right: 20px;" class="singleUpgradeContainer"><div class="upgradeCost" id="flower5UpgradeCost"></div></div>
+        </div>
+
+
+
+
+
+
+
+
+        <div class="upgradeContainer" id="clickerUpgradeContainer">
+
+          <div id="bee0count">0</div>
+          <div id="bee1count">0</div>
+
+          <img id="bee0" onclick="myFunction()" src="./fillerart.png">
+          <img id="bee1" onclick="myFunction()" src="./fillerart.png">
+
+          <div class="tooltipContainer" id="">
+            <h3 id="">Purchase worker bee for 1 Pollen</h3> 
+            <ol class="beeStatsList">
+              <li id="">0 pollen per second</li>
+            </ol>
+          </div>
+
+          <div class="tooltipContainer" id="">
+            <h3 id="bee1Tooltip">Purchase wizard bee for 200000 Pollen</h3>
+            <ol class="beeStatsList">
+              <li id="bee1Income">0 pollen per second</li>
+            </ol>
+          </div>
+
+          <div class="singleUpgradeContainer" id="" onclick="myFunction()">
+            <h3 id="bee0UpgradeText"></h3>
+            <div class="upgradeCost" id=""></div>
           </div>
 
           <div style="top: 100px; right: 20px;" class="singleUpgradeContainer" id="bee1UpgradeContainer" onclick="myFunction()">
-            <h3 id="bee1UpgradeText">Wizard bees now generate <span style="font-weight: 700;">2x</span> Pollen per bee</h3>
-            <div class="upgradeCost" id="bee1UpgradeCost"></div>
+            <h3 id="bee1UpgradeText"></h3>
+            <div class="upgradeCost" id=""></div>
           </div>
 
           <div style="top: 190px; right: 20px;" class="singleUpgradeContainer"><div class="upgradeCost" id="bee2UpgradeCost"></div></div>
@@ -115,6 +185,13 @@
 
       </div>
     </div> 
+
+
+
+
+
+
+
 
     <script src="app.js"></script>
     <noscript>You need to enable JavaScript to view the full site.</noscript>

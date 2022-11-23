@@ -13,7 +13,8 @@
   --darkwood: #7a5230;
   --moneygreen: #598C58;
   --offwhite: #F4F0E0;
-  --creambrulee: #E8DBD5;
+  --creambrulee: #c8ac9c;
+  --brownyellow: #af9665;
 }
 
 body {
@@ -156,7 +157,7 @@ li {
 .upgradeContainer {
   position: absolute;
   bottom: 0px;
-  width: 420px;
+  width: 100%  ;
   height: 90%;
   -moz-border-radius: 0px;
   -webkit-border-radius: 0px 0px 6px 6px;
@@ -179,7 +180,12 @@ li {
 
 #flowerUpgradeContainer {
   background-color: var(--creambrulee);
-  z-index: -1;
+  z-index: 0;
+}
+
+#clickerUpgradeContainer {
+  background-color: var(--grey);
+  z-index: 0;
 }
 
 .upgradeContainer::-webkit-scrollbar { 
@@ -188,9 +194,10 @@ li {
 
 .tabs {
   position: absolute;
-  top: -3%;
-  height: 26px;
-  width: 80px;
+  z-index: 1;
+  top: 7%;
+  height: 3.3%;
+  width: 19%;
   -moz-border-radius: 0px;
   -webkit-border-radius: 6px 6px 0px 0px;
   border-radius: 6px 6px 0px 0px; 
@@ -209,15 +216,19 @@ li {
 }
 
 #flowerTab {
-  left: 85px;
-  background-color: var(--offwhite);
-  z-index: -2;
+  left: 20%;
+  background-color: var(--creambrulee);
+}
+
+#clickerTab {
+  left: 40%;
+  background-color: var(--grey);
 }
 
 #rightContainer {
   position: absolute;
   right: 2%;
-  width: 420px;
+  width: 28%;
   height: 100%;
   background-color: var(--darkwood);
   border-radius: 6px;
@@ -236,7 +247,7 @@ li {
   position: absolute;
   top: 10px;
   right: 20px;
-  width: 275px;
+  width: 68%;
   height: 80px;
   background-color: var(--almond);
   border-radius: 6px;
@@ -295,6 +306,7 @@ li {
 
 #flowerImg {
   height: auto;
+  width: 20%;
   user-drag: none;
   -webkit-user-drag: none;
   user-select: none;
@@ -308,6 +320,7 @@ li {
   top: 15px;
   left: 10px;
   width:20%; /* you can use % */
+  opacity: 45%;
   height: auto;
   user-drag: none;
   -webkit-user-drag: none;
@@ -321,7 +334,8 @@ li {
   position: absolute;
   top: 105px;
   left: 10px;
-  width:20%; /* you can use % */
+  width:18%; /* you can use % */
+  opacity: 45%;
   height: auto;
   user-drag: none;
   -webkit-user-drag: none;
@@ -337,7 +351,7 @@ li {
   left: 3%;
   visibility: hidden;
   z-index: 30;
-  font-family: Silkscreen;
+  font-family: 'Silkscreen';
   font-weight: 400;
 }
 
@@ -359,6 +373,7 @@ li {
   width: 275px;
   height: 120px;
   background-color: var(--lightblack);
+  font-family: Roboto;
   border-radius: 6px;
   display: inline-block;
   user-drag: none;
@@ -480,4 +495,8 @@ li {
 
 #resetBeeCountButton {
   left: 300px;
+}
+
+#addPollen {
+  left: 400px;
 }
