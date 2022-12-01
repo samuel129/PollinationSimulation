@@ -227,6 +227,7 @@ li {
 
 #rightContainer {
   position: absolute;
+  max-width: 450px;
   right: 2%;
   width: 28%;
   height: 100%;
@@ -395,7 +396,7 @@ li {
 #bee0count {
   position: absolute;
   top: 60px;
-  left: 65px;
+  left: 70px;
   text-shadow: 2px 0 #000, -2px 0 #000, 0 2px #000, 0 -2px #000,
   1px 1px #000, -1px -1px #000, 1px -1px #000, -1px 1px #000;
   z-index: 2;

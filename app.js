@@ -109,10 +109,12 @@ if (document.getElementById("pollinationsimulation")) {
 	bee0_0: "Flies will now generate 2x pollen per fly", bee0_0cost: 3000,
 	bee0_1: "Flies will now generate 4x pollen per fly", bee0_1cost: 10000,
 	bee0_2: "Flies will now generate 8x pollen per fly", bee0_2cost: 15000,
+	bee0_3: "No more upgrades!", bee0_3cost: 9999999999999999,
 
 	bee1_0: "Moths will now generate 2x pollen per moth", bee1_0cost: 500000,
 	bee1_1: "Moths will now generate 4x pollen per moth", bee1_1cost: 1000000,
-	bee1_2: "Moths will now generate 8x pollen per moth", bee1_2cost: 5000000
+	bee1_2: "Moths will now generate 8x pollen per moth", bee1_2cost: 5000000,
+	bee1_3: "No more upgrades!", bee1_3cost: 9999999999999999,
 	};
 
 	//page loader for income and upgrade status for each bee
@@ -138,7 +140,10 @@ if (document.getElementById("pollinationsimulation")) {
 			upgradeStatus[i] = +localStorage.getItem("bee" + i + "UpgradeStatus");
 			document.getElementById("bee" + i + "UpgradeText").textContent = beeUpgrades["bee" + i + "_" + upgradeStatus[i]];
 			document.getElementById("bee" + i + "UpgradeCost").textContent = "$" + beeUpgrades["bee" + i + "_" + upgradeStatus[i] + "cost"];
-			console.log(i);
+
+			if (localStorage.getItem("bee" + i + "UpgradeStatus") == 3) {
+				document.getElementById("bee" + i + "UpgradeCost").style.visibility = "hidden";
+			}
 		}
 
 		if (localStorage.getItem("bee" + i + "Count")) {
@@ -150,13 +155,13 @@ if (document.getElementById("pollinationsimulation")) {
 			if (i == 0) {
 				beeCosts[i] = getCostFormula(i);
 				document.getElementById("bee" + i + "Tooltip").textContent = "buy fly for " + reduceNumber(beeCosts[i]) + " pollen";
-				document.getElementById("bee0Income").textContent = (Math.trunc((beeCounts[0] * 2 * bee0upgrades[upgradeStatus[0]]) * .8) * 1.5) + " pollen per second"
+				document.getElementById("bee0Income").textContent = (Math.trunc((beeCounts[0] * 2 * bee0upgrades[upgradeStatus[0]]) * .8) * 1.5) + " pollen/sec"
 			}
 
 			else if (i == 1) {
 				beeCosts[i] = getCostFormula(i);
 				document.getElementById("bee" + i + "Tooltip").textContent = "buy bee for " + reduceNumber(beeCosts[i]) + " pollen";
-				document.getElementById("bee1Income").textContent = (Math.trunc(((beeCounts[1] * 100 * bee0upgrades[upgradeStatus[1]]) * .8) * 1.5)) + " pollen per second"
+				document.getElementById("bee1Income").textContent = (Math.trunc(((beeCounts[1] * 100 * bee0upgrades[upgradeStatus[1]]) * .8) * 1.5)) + " pollen/sec"
 			}
 		}
 	}
@@ -185,7 +190,7 @@ if (document.getElementById("pollinationsimulation")) {
 			income = setIncome();
 			document.getElementById("bee0Tooltip").textContent = "buy fly for " + reduceNumber((getCostFormula(0))) + " pollen";
 			document.getElementById("pollenCount").textContent = reduceNumber((+localStorage.getItem("pollenCount")));
-			document.getElementById("bee0Income").textContent = (Math.trunc((beeCounts[0] * 2 * bee0upgrades[upgradeStatus[0]]) * .8) * 1.5) + " pollen per second"
+			document.getElementById("bee0Income").textContent = (Math.trunc((beeCounts[0] * 2 * bee0upgrades[upgradeStatus[0]]) * .8) * 1.5) + " pollen/sec"
 		}
 	}
 
@@ -201,7 +206,7 @@ if (document.getElementById("pollinationsimulation")) {
 			income = setIncome(income, 1);
 			document.getElementById("bee1Tooltip").textContent = "buy bee for " + reduceNumber((getCostFormula(1))) + " pollen";
 			document.getElementById("pollenCount").textContent = reduceNumber((+localStorage.getItem("pollenCount")));
-			document.getElementById("bee1Income").textContent = (Math.trunc(((beeCounts[1] * 100 * bee0upgrades[upgradeStatus[1]]) * .8) * 1.5)) + " pollen per second"
+			document.getElementById("bee1Income").textContent = (Math.trunc(((beeCounts[1] * 100 * bee0upgrades[upgradeStatus[1]]) * .8) * 1.5)) + " pollen/sec"
 		}
 	}
 
@@ -219,7 +224,11 @@ if (document.getElementById("pollinationsimulation")) {
 			document.getElementById("bee0UpgradeCost").textContent = "$" + beeUpgrades["bee0_" + upgradeStatus[0] + "cost"];
 
 			document.getElementById("pollenCount").textContent = reduceNumber((+localStorage.getItem("pollenCount")));
-			document.getElementById("bee0Income").textContent = (Math.trunc((beeCounts[0] * 2 * bee0upgrades[upgradeStatus[0]]) * .8) * 1.5) + " pollen per second"
+			document.getElementById("bee0Income").textContent = (Math.trunc((beeCounts[0] * 2 * bee0upgrades[upgradeStatus[0]]) * .8) * 1.5) + " pollen/sec"
+
+			if (localStorage.getItem("bee" + 0 + "UpgradeStatus") == 3) {
+				document.getElementById("bee" + 0 + "UpgradeCost").style.visibility = "hidden";
+			}
 		}
 	}
 
@@ -237,7 +246,11 @@ if (document.getElementById("pollinationsimulation")) {
 			document.getElementById("bee1UpgradeCost").textContent = "$" + beeUpgrades["bee1_" + upgradeStatus[1] + "cost"];
 			
 			document.getElementById("pollenCount").textContent = reduceNumber((+localStorage.getItem("pollenCount")));
-			document.getElementById("bee1Income").textContent = (Math.trunc(((beeCounts[1] * 100 * bee0upgrades[upgradeStatus[1]]) * .8) * 1.5)) + " pollen per second"
+			document.getElementById("bee1Income").textContent = (Math.trunc(((beeCounts[1] * 100 * bee0upgrades[upgradeStatus[1]]) * .8) * 1.5)) + " pollen/sec"
+		
+			if (localStorage.getItem("bee" + 1 + "UpgradeStatus") == 3) {
+				document.getElementById("bee" + 1 + "UpgradeCost").style.visibility = "hidden";
+			}
 		}
 	}
 
@@ -288,7 +301,7 @@ if (document.getElementById("pollinationsimulation")) {
 		let currpollen = +localStorage.getItem("pollenCount");
 		document.getElementById("pollenCount").textContent = reduceNumber(currpollen + income);
 		localStorage.setItem("pollenCount", currpollen + income);
-		document.getElementById("totalIncome").textContent = reduceNumber(Math.trunc(income * 1.5)) + " pollen/sec";
+		document.getElementById("totalIncome").textContent = reduceNumber(Math.trunc(income * 1.5)) + " pollen/secec";
 		setTimeout(incomeOverTime, 400);
 
 		if (localStorage.getItem("pollenCount") >= getCostFormula(0)) {
@@ -322,15 +335,15 @@ if (document.getElementById("pollinationsimulation")) {
 		else if (numberLength >= 13) {
 
 			if (numberLength == 13) {
-				return(number.slice(3,3) + "." + number.slice(1,4)+ "t");
+				return(number.slice(0,1) + "." + number.slice(1,4)+ "t");
 			}
 
 			else if (numberLength == 14) {
-				return(number.slice(1,3) + "." + number.slice(2,5)+ "t");
+				return(number.slice(0,2) + "." + number.slice(2,5)+ "t");
 			}
 
 			else if (numberLength == 15) {
-				return(number.slice(2,3) + "." + number.slice(3,6)+ "t");
+				return(number.slice(0,3) + "." + number.slice(3,6)+ "t");
 			}
 		}
 
@@ -338,15 +351,15 @@ if (document.getElementById("pollinationsimulation")) {
 		else if (numberLength >= 10) {
 
 			if (numberLength == 10) {
-				return(number.slice(3,3) + "." + number.slice(1,4)+ "b");
+				return(number.slice(0,1) + "." + number.slice(1,4)+ "b");
 			}
 
 			else if (numberLength == 11) {
-				return(number.slice(1,3) + "." + number.slice(2,5)+ "b");
+				return(number.slice(0,2) + "." + number.slice(2,5)+ "b");
 			}
 
 			else if (numberLength == 12) {
-				return(number.slice(2,3) + "." + number.slice(3,6)+ "b");
+				return(number.slice(0,3) + "." + number.slice(3,6)+ "b");
 			}
 		}
 
@@ -435,7 +448,7 @@ if (document.getElementById("pollinationsimulation")) {
 	}
 
 	document.getElementById("addPollen").onclick = function () {
-		localStorage.setItem("pollenCount", +localStorage.getItem("pollenCount") + 200000);
+		localStorage.setItem("pollenCount", +localStorage.getItem("pollenCount") + 200000000);
 		loadEverything();
 		document.getElementById("pollenCount").textContent = reduceNumber(+localStorage.getItem("pollenCount"));
 	}
