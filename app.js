@@ -131,6 +131,18 @@ if (document.getElementById("pollinationsimulation")) {
 		}
 	}
 
+	if (localStorage.getItem("whichUpgradeTab")) {
+		if (localStorage.getItem("whichUpgradeTab") == 0) {
+			document.getElementById("beeUpgradeContainer").style.zIndex = 99;
+		}
+		else if (localStorage.getItem("whichUpgradeTab") == 1) {
+			document.getElementById("flowerUpgradeContainer").style.zIndex = 99;
+		}
+		else if (localStorage.getItem("whichUpgradeTab") == 2) {
+			document.getElementById("clickerUpgradeContainer").style.zIndex = 4;
+		}
+	}
+
 	for (let i = 0; i <= 1; i++) {
 		if (!localStorage.getItem("bee" + i + "UpgradeStatus")) {
 			localStorage.setItem("bee" + i + "UpgradeStatus", 0);
@@ -255,18 +267,21 @@ if (document.getElementById("pollinationsimulation")) {
 	}
 
 	document.getElementById("beeTab").onclick = function () {
+		localStorage.setItem("whichUpgradeTab", 0);
 		document.getElementById("flowerUpgradeContainer").style.zIndex = 2;
 		document.getElementById("beeUpgradeContainer").style.zIndex = 3;
 		document.getElementById("clickerUpgradeContainer").style.zIndex = 2;
 	}
 
 	document.getElementById("flowerTab").onclick = function () {
+		localStorage.setItem("whichUpgradeTab", 1);
 		document.getElementById("flowerUpgradeContainer").style.zIndex = 3;
 		document.getElementById("beeUpgradeContainer").style.zIndex = 2;
 		document.getElementById("clickerUpgradeContainer").style.zIndex = 2;
 	}
 
 	document.getElementById("clickerTab").onclick = function () {
+		localStorage.setItem("whichUpgradeTab", 2);
 		document.getElementById("flowerUpgradeContainer").style.zIndex = 2;
 		document.getElementById("beeUpgradeContainer").style.zIndex = 2;
 		document.getElementById("clickerUpgradeContainer").style.zIndex = 3;
@@ -301,7 +316,7 @@ if (document.getElementById("pollinationsimulation")) {
 		let currpollen = +localStorage.getItem("pollenCount");
 		document.getElementById("pollenCount").textContent = reduceNumber(currpollen + income);
 		localStorage.setItem("pollenCount", currpollen + income);
-		document.getElementById("totalIncome").textContent = reduceNumber(Math.trunc(income * 1.5)) + " pollen/secec";
+		document.getElementById("totalIncome").textContent = reduceNumber(Math.trunc(income * 1.5)) + " pollen/sec";
 		setTimeout(incomeOverTime, 400);
 
 		if (localStorage.getItem("pollenCount") >= getCostFormula(0)) {
