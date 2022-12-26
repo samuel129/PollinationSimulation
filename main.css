@@ -15,6 +15,7 @@
   --offwhite: #F4F0E0;
   --creambrulee: #c8ac9c;
   --brownyellow: #af9665;
+  --orange: #e27602;
 }
 
 body {
@@ -173,6 +174,34 @@ li {
   scrollbar-width: none;  /* Firefox */
 }
 
+#slowFlowerImg {
+  position: absolute;
+  width: 50%;
+  z-index: -1;
+}
+
+#hibiscusUpgradeText {
+  position: absolute;
+  color: var(--red);
+  font-size: 2vw;
+  z-index: 6;
+  top: 24%;
+}
+
+#orchidUpgradeText {
+  position: absolute;
+  font-size: 2vw;
+  z-index: 6;
+  bottom: 14%;
+}
+
+#fastFlowerImg {
+  bottom: 20%;
+  position: absolute;
+  width: 50%;
+  z-index: -1;
+}
+
 #beeUpgradeContainer {
   background-color: var(--wood);
   z-index: 1;
@@ -181,6 +210,13 @@ li {
 #flowerUpgradeContainer {
   background-color: var(--creambrulee);
   z-index: 0;
+}
+
+#initialFlowerUpgradeContainer {
+  height:100%;
+  position:absolute;
+  background-color: var(--creambrulee);
+  z-index: -1;
 }
 
 #clickerUpgradeContainer {
@@ -208,7 +244,7 @@ li {
 
 .tabText {
   position: relative;
-  font-size: 110%;
+  font-size: 90%;
   top: 0px;
   color: var(--white);
   text-shadow: 2px 0 #000, -2px 0 #000, 0 2px #000, 0 -2px #000,
@@ -275,7 +311,7 @@ li {
 
 #bee0UpgradeText {
   position: absolute;
-  top: -20%;
+  top: 0%;
   left: 3%;
   display: inline-block;
   user-drag: none;
@@ -291,7 +327,7 @@ li {
 
 #bee1UpgradeText {
   position: absolute;
-  top: -20%;
+  top: 0%;
   left: 3%;
   display: inline-block;
   user-drag: none;
@@ -348,7 +384,7 @@ li {
 
 #bee0Tooltip {
   position: absolute;
-  top: -10%;
+  top: 0%;
   left: 3%;
   visibility: hidden;
   z-index: 30;
@@ -358,7 +394,7 @@ li {
 
 #bee1Tooltip {
   position: absolute;
-  top: -10%;
+  top: 0%;
   left: 3%;
   visibility: hidden;
   z-index: 30;
@@ -416,11 +452,11 @@ li {
 }
 
 #totalIncome {
-  top:8%;
+  top:10%;
 }
 
 #pollenLetters {
-  top: 2.7%;
+  top: 4%;
 }
 
 .centeredText {
@@ -428,7 +464,7 @@ li {
   text-align: center;
   width: 100%;
   left: 0px;
-  top: -1.5%;
+  top: 0%;
   z-index: 1;
   text-shadow: 2px 0 #000, -2px 0 #000, 0 2px #000, 0 -2px #000,
   1px 1px #000, -1px -1px #000, 1px -1px #000, -1px 1px #000;
@@ -477,6 +513,7 @@ li {
 
 .devButtons {
   position: absolute;
+  font-size: 70%;
   top: 85%;
   height: 40px;
   width: 80px;
@@ -487,17 +524,17 @@ li {
 }
 
 #resetPollenButton {
-  left: 100px;
-}
-
-#resetUpgradesButton {
-  left: 200px;
-}
-
-#resetBeeCountButton {
   left: 300px;
 }
 
-#addPollen {
+#resetUpgradesButton {
   left: 400px;
+}
+
+#resetBeeCountButton {
+  left: 500px;
+}
+
+#addPollen {
+  left: 600px;
 }
