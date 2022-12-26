@@ -118,7 +118,7 @@ if (document.getElementById("pollinationsimulation")) {
 	bee1_3: "No more upgrades!", bee1_3cost: Infinity,
 	};
 
-	//page loader for income and upgrade status for each bee
+	//page loaders
 
 	//checking which upgrade for flowers
 	if (!localStorage.getItem("flowerUpgradeStatus")) {
@@ -126,7 +126,6 @@ if (document.getElementById("pollinationsimulation")) {
 	}
 
 	else {
-		localStorage.setItem("flowerUpgradeStatus", 0);
 		flowerUpgradeStatus = localStorage.getItem("flowerUpgradeStatus");
 
 		if (flowerUpgradeStatus == 0) {
@@ -134,6 +133,11 @@ if (document.getElementById("pollinationsimulation")) {
 			document.getElementById("slowFlowerImg").style.zIndex = 5;
 			document.getElementById("fastFlowerImg").style.zIndex = 5;
 		}
+	}
+
+	//checking which flower upgrade they chose
+	if (flowerUpgradeStatus > 0) {
+		document.getElementById("initialFlowerUpgradeContainer").style.visibility = "hidden";
 	}
 
 	//checking which tab the user left off with
@@ -271,6 +275,22 @@ if (document.getElementById("pollinationsimulation")) {
 				document.getElementById("bee" + 1 + "UpgradeCost").style.visibility = "hidden";
 			}
 		}
+	}
+
+	document.getElementById("slowFlowerImg").onclick = function () {
+		flowerUpgradePath = 0;
+		document.getElementById("initialFlowerUpgradeContainer").style.visibility = "hidden";
+		localStorage.setItem("flowerUpgradeStatus", 1);
+		flowerUpgradeStatus = 1;
+		localStorage.setItem("flowerUpgradePath", 2);
+	}
+
+	document.getElementById("fastFlowerImg").onclick = function () {
+		flowerUpgradePath = 2;
+		document.getElementById("initialFlowerUpgradeContainer").style.visibility = "hidden";
+		localStorage.setItem("flowerUpgradeStatus", 1);
+		flowerUpgradeStatus = 1;
+		localStorage.setItem("flowerUpgradePath", 2);
 	}
 
 	document.getElementById("beeTab").onclick = function () {
